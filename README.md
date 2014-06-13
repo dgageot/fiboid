@@ -1,5 +1,18 @@
 Recursive Fibonacci with Docker inside Docker inside Docker inside...
 
+# Build
+
+docker build -t dgageot/fibonacci .
+
+# Run
+
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 0
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 1
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 2
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 4
+
+# How it works
+
 Here's the algorithm:
 
 '''
@@ -14,13 +27,50 @@ return the sum up the two values
 
 Most of the time is spent starting docker -d and sleeping until its started.
 
-# Build
+# Sample Execution Plan
 
-docker build -t dgageot/fibonacci .
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 7
 
-# Run
-
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 0
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 1
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 2
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 4
+'''
+- docker 7 (=13)
+  - docker 5
+    - docker 3
+      - docker 1
+      - docker 2
+        - docker 0
+        - docker 1
+    - docker 4
+      - docker 2
+        - docker 0
+        - docker 1
+      - docker 3
+        - docker 1
+        - docker 2
+          - docker 0
+          - docker 1 (depth=6)
+  - docker 6
+    - docker 4
+      - docker 2
+        - docker 0
+        - docker 1
+      - docker 3
+        - docker 1
+        - docker 2
+          - docker 0
+          - docker 1
+    - docker 5
+      - docker 3
+        - docker 1
+        - docker 2
+          - docker 0
+          - docker 1
+      - docker 4
+        - docker 2
+          - docker 0
+          - docker 1
+        - docker 3
+          - docker 1
+          - docker 2
+            - docker 0
+            - docker 1
+'''
