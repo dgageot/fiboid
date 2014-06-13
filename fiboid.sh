@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ $1 -le 0 ]; then
+    echo 0
+	exit 1
+fi
+
+if [ $1 -eq 1 ]; then
+    echo 1
+	exit 1
+fi
+
+./startdocker.sh >/dev/null 2>/dev/null
+sleep 1
+
+a=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fibonacci $[$1-2])
+b=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fibonacci $[$1-1])
+echo $[$a+$b]
