@@ -11,7 +11,7 @@ if [ $1 -eq 1 ]; then
 fi
 
 ./startdocker.sh >/dev/null 2>/dev/null
-sleep 1
+docker ps >/dev/null 2>/dev/null
 
 a=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fibonacci $[$1-2])
 b=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fibonacci $[$1-1])
