@@ -3,16 +3,16 @@ Recursive Fibonacci with Docker inside Docker inside Docker inside...
 # Build
 
 ```
-docker build -t dgageot/fibonacci .
+docker build -t dgageot/fiboid .
 ```
 
 # Run
 
 ```
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 0
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 1
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 2
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 4
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fiboid 0
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fiboid 1
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fiboid 2
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fiboid 4
 ```
 
 # How it works
@@ -33,7 +33,7 @@ Most of the time is spent starting docker -d and sleeping until its started.
 
 # Sample Execution Plan
 
-docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fibonacci 7
+docker run --rm --privileged -ti -v /var/lib/docker:/var/lib/docker dgageot/fiboid 7
 
 ```
 - docker 7 (=13)

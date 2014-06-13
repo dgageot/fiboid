@@ -13,6 +13,6 @@ fi
 ./startdocker.sh >/dev/null 2>/dev/null
 docker ps >/dev/null 2>/dev/null
 
-a=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fibonacci $[$1-2])
-b=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fibonacci $[$1-1])
+a=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fiboid $[$1-2])
+b=$(docker run --rm --privileged -v /var/lib/docker:/var/lib/docker dgageot/fiboid $[$1-1])
 echo $[$a+$b]
