@@ -26,7 +26,7 @@ otherwise
 start a docker daemon inside current docker container
 run a container for value-2
 run a container for value-1
-return the sum up the two values
+return the sum of the two values
 ```
 
 Most of the time is spent starting docker -d and sleeping until its started.
