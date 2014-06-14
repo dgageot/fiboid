@@ -2,9 +2,7 @@ Recursive Fibonacci with Docker inside Docker inside Docker inside...
 
 # Build
 
-```bash
 	docker build -t dgageot/fiboid .
-```
 
 # Run
 
