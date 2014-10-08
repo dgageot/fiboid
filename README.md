@@ -23,7 +23,7 @@ Here's the algorithm:
 	run a container for value-1
 	return the sum of the two values
 
-Most of the time is spent starting docker -d and sleeping until its started.
+Most of the time is spent starting docker -d and sleeping until it's started.
 
 # Sample Execution Plan
 
