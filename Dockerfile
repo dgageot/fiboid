@@ -1,8 +1,7 @@
-from jpetazzo/dind
-maintainer David Gageot <david@gageot.net>
+FROM jpetazzo/dind
+MAINTAINER David Gageot <david@gageot.net>
 
-entrypoint ["./fiboid.sh"]
+ENTRYPOINT ["./fiboid.sh"]
 
-add startdocker.sh /
-add fiboid.sh /
-
+ADD startdocker.sh /
+ADD fiboid.sh /

@@ -1,13 +1,13 @@
 #!/bin/bash
 
 if [ $1 -le 0 ]; then
-    echo 0
-	exit 1
+  echo 0
+  exit 1
 fi
 
 if [ $1 -eq 1 ]; then
-    echo 1
-	exit 1
+  echo 1
+  exit 1
 fi
 
 ./startdocker.sh >/dev/null 2>/dev/null
