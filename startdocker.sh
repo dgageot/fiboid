@@ -2,11 +2,12 @@
 
 # First, make sure that cgroups are mounted correctly.
 CGROUP=/sys/fs/cgroup
+: {LOG:=stdio}
 
-[ -d $CGROUP ] ||
+[ -d $CGROUP ] || 
 	mkdir $CGROUP
 
-mountpoint -q $CGROUP ||
+mountpoint -q $CGROUP || 
 	mount -n -t tmpfs -o uid=0,gid=0,mode=0755 cgroup $CGROUP || {
 		echo "Could not make a tmpfs mount. Did you use -privileged?"
 		exit 1
@@ -24,7 +25,7 @@ fi
 for SUBSYS in $(cut -d: -f2 /proc/1/cgroup)
 do
         [ -d $CGROUP/$SUBSYS ] || mkdir $CGROUP/$SUBSYS
-        mountpoint -q $CGROUP/$SUBSYS ||
+        mountpoint -q $CGROUP/$SUBSYS || 
                 mount -n -t cgroup -o $SUBSYS cgroup $CGROUP/$SUBSYS
 
         # The two following sections address a bug which manifests itself
@@ -77,9 +78,8 @@ do
 done
 popd >/dev/null
 
-
 # If a pidfile is still around (for example after a container restart),
 # delete it so that docker can start.
 rm -rf /var/run/docker.pid
 
-docker -d &
+docker -d $DOCKER_DAEMON_ARGS &
