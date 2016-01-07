@@ -4,7 +4,7 @@ Recursive Fibonacci with Docker inside Docker inside Docker inside...
 
 # Why so much hate?
 
-I wanted to learn more about Docker before I deploy apps with Docker. And its fun!
+I wanted to learn more about Docker before I deploy apps with Docker. And it's fun!
 
 # Build
 
